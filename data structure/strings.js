@@ -1,0 +1,3 @@
+/*
+Strings are immutable in javascript
+*/
