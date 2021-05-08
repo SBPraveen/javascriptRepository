@@ -73,6 +73,19 @@ class LinkedList{
         this._size += 1;
     }
 
+    insertAtIndex(index,value){
+        const node = {value:value, next:null};
+        let currentNode = this._head;
+
+        for (let i =0 ; i<(index-1); i++){
+    
+            currentNode = currentNode.next;
+    
+        }
+        node.next = currentNode.next;
+        currentNode.next = node;
+        this._size += 1;
+    }
 
     deleteTail(){
         //loop and find the node that is before the tail
@@ -84,9 +97,9 @@ class LinkedList{
     
     
     delete(value){
-         nodeToBeDeleted = this.findCurrent(value);
+         let nodeToBeDeleted = this.findCurrent(value);
          //Find if it is the head node
-         if (nodeToBeDeleted.isHead()){
+         if (this.isHead(nodeToBeDeleted)){
             this._head = nodeToBeDeleted.next;
             return 1;
          }
@@ -114,6 +127,15 @@ class LinkedList{
     isTail(node){
         return node === this._tail;
     }
+
+    print(){
+        let currentNode = this._head;
+        while(currentNode.next!==null){
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        console.log(this._tail.value);
+    }
 }
 const myLinkedList = new LinkedList(1);
 myLinkedList.insertEnd(2);
@@ -128,5 +150,22 @@ console.log(myLinkedList);
 
 // console.log(myLinkedList.findCurrent(7));
 
-myLinkedList.insertBeginning(0);
-console.log(myLinkedList);
+// myLinkedList.insertBeginning(0);
+// console.log(myLinkedList);
+
+
+// myLinkedList.insertAtIndex(5,5.5);
+// console.log(myLinkedList);
+
+
+// myLinkedList.deleteTail();
+// console.log(myLinkedList);
+
+
+// myLinkedList.delete(5);
+// console.log(myLinkedList);
+
+
+// console.log(myLinkedList.constains(5));
+
+myLinkedList.print();
