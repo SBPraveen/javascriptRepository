@@ -1,3 +1,4 @@
+
 /*
 ? Queues
 These are ordered data structure 
@@ -10,19 +11,17 @@ class Queue{
     constructor(){
         this._storage = {};
         this._beginning = 0;
-        this._end = 0;
-        this._length = this._end - this._beginning;
+        this._length = 0;
     }
     enqueue(value){
-        this._storage[this._end] = value;
-        this._end++;
-        this._length = this._end - this._beginning;
+        this._storage[this._length] = value;
+        this._length++;
     }
     dequeue(){
         if(this._length){
             delete this._storage[this._beginning];
             this._beginning += 1;
-            this._length = this._end - this._beginning;
+            this._length--;
         }
         
     }
