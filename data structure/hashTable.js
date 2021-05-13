@@ -1,6 +1,7 @@
 /*
 ? Hash Tables
 hash Tables are like books with index => Meaning we can reach out to values faster
+insert and remove at constant time this is done using the hashing function
 These are unordered collection of data.
 They are used for quick lookups
 Can be implemented using maps, set, object.
@@ -10,28 +11,63 @@ Here keys are converted into memory address using the hashing function
 Hash tables cannot be sorted
 
 Here we use arrays for storage(We can also use Linked List but it is complex)
-We don't use objects because we shouldn't implement an object with a object 
-if two input values are hashed and are having the same index use sub-arrays => [ [ ['one':1],['two':2] ],[],[],[] ] 
-                                                                    index =>          0[1]      0[2]     1  2  3
+We don't use objects because we shouldn't implement an object(hashTables boils down to objects) with a object 
+if two input values are hashed and are having the same index use sub-arrays => [ [], [['one':1],['two':2]] ,[],[],[] ] 
+                                                                    index =>      0     1[1]      2[2]       2  3  4
 Note:
 take into account,
-1) the problem of resizing 
-2) the problem of collisions
+1) the problem of resizing => When half of the array gets filled double the size of the array 
+2) the problem of collisions => Can be handled using subarrays
+sub-arrays => [ [], [['one':1],['two':2]] ,[],[],[] ] 
+  index =>      0     1[1]      2[2]       2  3  4
 */
 
 class HashTable{
-    constructor(){
-        this._storage = [];
-    }
-    insert(){
 
+    constructor(val){
+        this._storage = [];
+        this._tableSize = val;
     }
+
+    insert(key, value){
+        const index = this._hash(key, this._tableSize);
+        //arrayAtIndex chooses "[["ball",2], ["labl",3]]" in the storage array => [["app",1],0,0,0,[["ball",2], ["labl",3]],0,0,0]
+        const arrayAtIndex = this._storage[index];
+
+        //To prevent keys with the same name loop throught the array before inserting into the storage 
+             //Eg: myHashTable.insert('monkey',6); myHashTable.insert('monkey',9)
+        if(arrayAtIndex)
+            for(let i =0; i< arrayAtIndex.length; i++)
+                if(arrayAtIndex[i][0] === key)
+                    return "HashTable already contains that key";
+                
+            
+            
+        if(!this._storage[index]){
+            this._storage[index] = [];
+        }
+        this._storage[index].push([key,value]);
+    }
+
     remove(){
 
     }
-    retrieve(){
-    
+
+    retrieve(key){
+        const index = this._hash(key, this._tableSize);
+        const arrayAtIndex = this._storage[index];   
+        if (arrayAtIndex) {
+            for(let i=0; i<=arrayAtIndex.length; i++){
+                if(arrayAtIndex[i][0] === key) return arrayAtIndex[i][1]
+                // else return "There is no value associated with this key";
+                //!don't  write the above statement because when the first time the loop runs if the key doesn't match then the control 
+                                //will be returned and no subsequent arrays will be executed
+            }                                    
+        } else {
+            return "There is no value associated with this key";
+        }   
     }
+
     _hash(str, n) {
         let sum = 0;
         for(let i=0; i<str.length; i++){
@@ -42,5 +78,20 @@ class HashTable{
 
 }
 
-const myHashTable = new HashTable();
+const myHashTable = new HashTable(25);
+
+
+myHashTable.insert('bat',"bat1");
+myHashTable.insert('abt',"bat2");
+myHashTable.insert('tab',"bat3");
+myHashTable.insert('monkey',"monkey1");
+myHashTable.insert('cat',"cat1");
+myHashTable.insert('tiger',"Tiger1");
+myHashTable.insert('monkey',"monkey2");
+myHashTable.insert('monkey',"monkey3");
+myHashTable.insert('cat',"cat2");
+myHashTable.insert('cat',"cat3");
+
 console.log(myHashTable);
+
+console.log(myHashTable.retrieve("abt"))
