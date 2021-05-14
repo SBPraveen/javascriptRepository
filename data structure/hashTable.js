@@ -5,7 +5,6 @@ insert and remove at constant time this is done using the hashing function
 These are unordered collection of data.
 They are used for quick lookups
 Can be implemented using maps, set, object.
-insertion and removal takes constant time
 Flexible keys => Strings, functions etc
 Here keys are converted into memory address using the hashing function
 Hash tables cannot be sorted
@@ -19,39 +18,39 @@ take into account,
 1) the problem of resizing => When half of the array gets filled double the size of the array 
 2) the problem of collisions => Can be handled using subarrays
 sub-arrays => [ [], [['one':1],['two':2]] ,[],[],[] ] 
-  index =>      0     1[1]      2[2]       2  3  4
+  index =>      0     1[1]      1[2]       2  3  4
 */
 
+// Todo => Implement resizing the hash table
+
+
 class HashTable{
+
 
     constructor(val){
         this._storage = [];
         this._tableSize = val;
+        this._inputSize = 0; //For resizing
     }
+
 
     insert(key, value){
         const index = this._hash(key, this._tableSize);
         //arrayAtIndex chooses "[["ball",2], ["labl",3]]" in the storage array => [["app",1],0,0,0,[["ball",2], ["labl",3]],0,0,0]
         const arrayAtIndex = this._storage[index];
-
         //To prevent keys with the same name loop throught the array before inserting into the storage 
              //Eg: myHashTable.insert('monkey',6); myHashTable.insert('monkey',9)
         if(arrayAtIndex)
             for(let i =0; i< arrayAtIndex.length; i++)
                 if(arrayAtIndex[i][0] === key)
-                    return "HashTable already contains that key";
-                
-            
-            
+                    return "HashTable already contains that key";    
         if(!this._storage[index]){
             this._storage[index] = [];
         }
         this._storage[index].push([key,value]);
+        this._inputSize += 1;
     }
 
-    remove(){
-
-    }
 
     retrieve(key){
         const index = this._hash(key, this._tableSize);
@@ -68,6 +67,22 @@ class HashTable{
         }   
     }
 
+
+    remove(key){
+        const index = this._hash(key, this._tableSize);
+        const arrayAtIndex = this._storage[index];   
+        if (arrayAtIndex) {
+            for(let i=0; i<=arrayAtIndex.length; i++){
+                if(arrayAtIndex[i][0] === key){
+                    delete arrayAtIndex[i];
+                    this._inputSize -= 1;
+                    return 1;                     //! return 1 else the loop will continue running and we will get Uncaught TypeError
+                } 
+            }
+    }
+}
+
+
     _hash(str, n) {
         let sum = 0;
         for(let i=0; i<str.length; i++){
@@ -75,6 +90,7 @@ class HashTable{
         }
         return sum%n;
     }
+
 
 }
 
@@ -95,3 +111,7 @@ myHashTable.insert('cat',"cat3");
 console.log(myHashTable);
 
 console.log(myHashTable.retrieve("abt"))
+
+myHashTable.remove('tiger');
+
+console.log(myHashTable);
