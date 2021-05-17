@@ -144,3 +144,23 @@ for (let i of nos){
 nos.forEach((no,index)=>{
     console.log(`index is ${index} and value is ${no}`)
 })
+
+
+
+
+//! Important questions 
+
+//* Rotate a matrix string or an array
+    // https://replit.com/@bgando/rotate-array-prompt
+    // https://www.geeksforgeeks.org/array-rotation/
+//* Given a m*n(Multi dimensional array) boolean matrix, if an element is zero set the entire row and column to zero => chess, tic tac toe etc.
+    // https://replit.com/@bgando/boolean-matrix-prompt
+    // https://www.geeksforgeeks.org/a-boolean-matrix-question/
+//* Search for a value
+    // https://replit.com/@bgando/search-for-value-prompt
+    // https://www.geeksforgeeks.org/linear-search/
+//* Write a function that encodes a string by turning all spaces into '%20'
+    // https://www.geeksforgeeks.org/urlify-given-string-replace-spaces/
+//* Merge two sorted list into one list
+    // https://replit.com/@bgando/merge-sorted-arrays-prompt
+    // https://www.geeksforgeeks.org/merge-two-sorted-arrays/

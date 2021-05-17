@@ -1,6 +1,7 @@
 /*
 ? Hash Tables
 hash Tables are like books with index => Meaning we can reach out to values faster
+Counting the no of occurances, Delete duplicates, Finding unique values => use hash tables
 insert and remove at constant time this is done using the hashing function
 These are unordered collection of data.
 They are used for quick lookups
@@ -115,3 +116,23 @@ console.log(myHashTable.retrieve("abt"))
 myHashTable.remove('tiger');
 
 console.log(myHashTable);
+
+
+
+
+
+
+//! Important Questions
+
+//*Q1 Count the number of occurences of all the characters or words in a body of a text or a string 
+    // https://replit.com/@bgando/ht-unique-string-prompt
+    // https://www.geeksforgeeks.org/determine-string-unique-characters/
+//*Q2 Delete duplicates in a list 
+    // https://replit.com/@bgando/ht-remove-dups-prompt
+    // https://www.geeksforgeeks.org/remove-duplicates-from-a-given-string/
+//*Q3  Find the unique value in the list 
+    // https://replit.com/@bgando/ht-find-unique-list-prompt
+    // https://www.geeksforgeeks.org/non-repeating-element/
+//*Q4 Two number sum 
+    // https://replit.com/@bgando/ht-two-items-sum
+    // https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/

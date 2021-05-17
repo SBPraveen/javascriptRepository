@@ -57,3 +57,28 @@ console.log(myStack);
 
 myStack.pop();
 console.log(myStack);
+
+
+
+// ! important questions
+
+//*Q1. Use an array to implement 3 stacks 
+    // https://replit.com/@bgando/k-stacks-one-array-prompt
+    // use subarrays => [[  1,   23,    5],   [2,     5,   89],[undefined,52,4],[undefined,8,undefined]] or use pointers
+    //                       S1[0] S2[0] S3[0]  S1[1] S2[1] S3[1] 
+    // https://replit.com/@bgando/k-stacks-one-array-solution
+
+//*Q2. Implement getMin() or getMax() method on your stack 
+    // https://replit.com/@bgando/min-stack-prompt
+    // Every time we input check whether the input is greater/lesser than the than the value in the getMin() / getMax() method then update the value 
+    // https://replit.com/@bgando/min-stack-solution
+
+//*Q3 Sort a stack with the min value on the top. We can use another stack as a buffer.
+    // https://replit.com/@bgando/sort-stack-prompt
+    // This is similar to the tower of hennoi problem.
+    //https://replit.com/@bgando/sort-stack-solution
+
+//*Q4 Bracket validator 
+     // https://replit.com/@bgando/bracket-validator-prompt 
+    // use a stack
+    // https://replit.com/@bgando/bracket-validator-solution

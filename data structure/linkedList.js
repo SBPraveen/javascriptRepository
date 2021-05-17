@@ -169,3 +169,73 @@ console.log(myLinkedList);
 // console.log(myLinkedList.constains(5));
 
 myLinkedList.print();
+
+
+
+
+
+
+//! Important questions 
+
+//*Q1 Delete a node in the middle of the linked list
+    // https://replit.com/@bgando/ll-delete-mid-node-prompt
+    // Find length/2 and pass it to the delete method
+    // https://www.geeksforgeeks.org/delete-middle-of-linked-list/
+
+//*Q2 Delete a node with only a variable pointing at that node
+    // https://replit.com/@bgando/ll-delete-node-no-pointers-prompt
+    // https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
+
+//*Q3 Delete all the duplicates in the linked list
+    // https://replit.com/@bgando/ll-delete-dupe-node-prompt
+    // https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
+
+//*Q4 Partition a linked List around a value
+    // https://replit.com/@bgando/ll-partition-prompt
+    // https://replit.com/@bgando/ll-partition-solution
+
+//*Q5 Reversing a linked list (Try to do it in place)
+    // https://replit.com/@bgando/ll-reverse-prompt
+    // https://replit.com/@bgando/ll-reverse-solution
+
+//*Q6 Check if a linked list contains cycles
+    // https://replit.com/@bgando/ll-cycle-detect-prompt
+    // https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+
+//*Q7 Find the Kth to the last node 
+    // https://replit.com/@bgando/ll-kth-to-last-node-prompt
+    // https://replit.com/@bgando/ll-kth-to-last-node-solution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

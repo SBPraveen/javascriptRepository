@@ -44,3 +44,17 @@ myQueue.dequeue();
 console.log(myQueue);
 
 console.log(myQueue.peek());
+
+
+
+
+// ! important questions
+
+//*Q1. Create a queue using 2 stacks
+    //https://replit.com/@bgando/queue-two-stacks-prompt
+    // Let the two stacks be A and B
+    //  Push and enqueue are almost the same (use Stack-A). Problem comes during dequeue since pop and dequeue are different.
+    // So for dequeue pop all the values from stack-A into stack-B (The order in which the value are stored gets reversed)
+    // Now when we pop from stack-B the funcionality will be similar to dequeue
+    // https://replit.com/@bgando/queue-two-stacks-solution
+
