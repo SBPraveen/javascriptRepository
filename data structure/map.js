@@ -36,6 +36,15 @@ console.log(myMap.values());
 myMap.clear();
 console.log(myMap);
 
+//-----------------------------------------------------------------------------------------------
+//! Incrementing map values
+let myMap = new Map();
+myMap.set('jessie',0);
+if(myMap.has('jessie')){
+    myMap.set('jessie', myMap.get('jessie')+1)
+    console.log(myMap.get('jessie'))
+}
+
 //--------------------------------------------------------------------------------------
 
 //.entries()
